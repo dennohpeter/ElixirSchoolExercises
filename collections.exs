@@ -48,3 +48,43 @@ iex(15)> [foor: "bar", hello: "world"]
 iex(16)> [{:foo, "bar"}, {:hello, 'world'}]
 [foo: "bar", hello: 'world']
 iex(17)>
+
+// Maps
+// These are 'go-to' key value store.
+//They allow keys of any type and are un-ordered.
+// You can define a map with the %{} syntax:
+iex(19)> map = %{:full => "bar", "hello" => :world }
+%{:full => "bar", "hello" => :world}
+iex(20)> map[:full]
+"bar"
+iex(21)> map["hello"]
+:world
+iex(22)> map["bar"]
+nil
+// key can also be a variable
+iex(23)> key = "hello"
+"hello"
+iex(24)> %{key => "world"
+...(24)> }
+%{"hello" => "world"}
+iex(25)>
+// There is a special syntax for maps containing Atoms
+iex(26)> %{ foo: "bar", hello: "world"}
+%{foo: "bar", hello: "world"}
+iex(27)> %{foo: "bar", hello: "world"} == %{:foo => "bar", :hello => "world"}
+true
+iex(28)>
+// In addition, there is a special syntax for accessing atom keys:
+iex(1)> map = %{foo: "bar", hello: "world" }
+%{foo: "bar", hello: "world"}
+iex(2)> map.foo
+"bar"
+iex(3)> map.hello
+"world"
+iex(4)>
+// Another interesting property of maps is that they provide their own syntax for updates:
+iex(4)> map = %{foo: "bar", hello: "world"}
+%{foo: "bar", hello: "world"}                    // Updating a map value
+iex(5)> %{map | foo: "cow"}                      // in a special way
+%{foo: "cow", hello: "world"}
+iex(6)>
