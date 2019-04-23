@@ -108,4 +108,28 @@ iex(11)> rem(9, 6)
 3
 iex(12)> rem(8,2)
 0
-iex(13)> 
+iex(13)>
+// Booleans
+// ||
+iex> -20 || true
+-20
+iex> false || 42
+42
+// &&
+iex(18)> 42 && true
+true
+iex(19)> 42 && nil
+nil
+iex(20)>
+// There are three additional operators whose first argument must be a boolean (true or false):
+iex(21)> true and 42
+42
+iex(22)> false or true
+true
+iex(23)>
+// String Concatenation we use <>
+iex(26)> name = "Dennis"
+"Dennis"
+iex(27)> "Hello " <> name
+"Hello Dennis"
+iex(28)>
