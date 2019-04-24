@@ -11,13 +11,13 @@ iex(2)> if "a string value" do
 ...(2)> end
 "Truthy"
 iex(3)>
-Unless // Using unless/2 is like if/2 only it works on the negative:
+Unless # Using unless/2 is like if/2 only it works on the negative:
 iex(3)> unless is_integer("hello")do
 ...(3)> "Not an int"
 ...(3)> end
 "Not an int"
 iex(4)>
-case  // If it’s necessary to match against multiple patterns we can use case/2:
+case  # If it’s necessary to match against multiple patterns we can use case/2:
 iex(5)> case {:ok, "Hello World"} do
 ...(5)> {:ok,result} -> result
 ...(5)> {:error} -> "Uh oh!"
@@ -33,7 +33,7 @@ iex(8)> case "cherry pie" do
 "I bet cherry pie is tasty"
 iex(9)>
 
-//case/2  support for guard clauses:
+#case/2  support for guard clauses:
 iex(10)> case {1,2,3} do
 ...(10)> {1,x,3} when x >0->
 ...(10)> "Will match"
@@ -43,7 +43,7 @@ iex(10)> case {1,2,3} do
 "Will match"
 iex(11)>
 
-cond //This is akin to else if or elsif from other prog lang
+cond #This is akin to else if or elsif from other prog lang
 iex(11)> cond do
 ...(11)> 2+2==5 ->
 ...(11)> "This will not be true"
@@ -56,5 +56,5 @@ iex(11)> cond do
 ...(11)> end
 "This will"
 iex(12)>
-// Like case/2, cond/1 will raise an error if there is no match.
-// To handle this, we can define a condition set to true:
+# Like case/2, cond/1 will raise an error if there is no match.
+# To handle this, we can define a condition set to true:

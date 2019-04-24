@@ -1,4 +1,4 @@
-// Anonymous Functions   //quick fns with no name
+# Anonymous Functions   #quick fns with no name
 Interactive Elixir (1.7.4) - press Ctrl+C to exit (type h() ENTER for help)
 iex(1)> sum = fn (a, b) -> a + b end
 #Function<12.128620087/2 in :erl_eval.expr/5>
@@ -7,7 +7,7 @@ iex(2)> sum = fn(a,b) -> a+b end
 iex(3)> sum.(5, 6)
 11
 iex(4)>
-// Shorthand for Anonymous Functions
+# Shorthand for Anonymous Functions
 iex(4)> sum = &(&1 + &2)
 &:erlang.+/2
 iex(5)> sum.(1,2)
@@ -16,7 +16,7 @@ iex(6)> sum.(1,6)
 7
 iex(7)>
 
-Pattern Matching  //Elixir uses pattern matching to check through all possible match options and select the first matching option to run:
+Pattern Matching  #Elixir uses pattern matching to check through all possible match options and select the first matching option to run:
 iex(9)> handle_result = fn
 ...(9)> {:ok, result} -> IO.puts "Handling result"
 ...(9)> {:ok, _} -> IO.puts "This will never run as previous will be matched beforehand."
@@ -35,7 +35,7 @@ iex(12)> handle_result.({:error})
 An error has occurred!
 :ok
 iex(13)
-Named Functions   // Functions with names so we can easily refer to them later
+Named Functions   # Functions with names so we can easily refer to them later
 iex(14)> defmodule Greeter do
 ...(14)> def hello(name)do
 ...(14)> "Hello, " <> name
@@ -48,14 +48,14 @@ iex(14)> defmodule Greeter do
 iex(15)> Greeter.hello("Dennis")
 "Hello, Dennis"
 iex(16)>
-// in one line
+# in one line
 iex(17)> defmodule Greeter do
 ...(17)> def hello(name), do: "hello, " <> name
 ...(17)> end
 iex(18)> Greeter.hello("Peterson")
 "hello, Peterson"
 iex(19)>
-// Recursion using named functions
+# Recursion using named functions
 iex(1)> defmodule Length do
 ...(1)> def of([]), do: 0
 ...(1)> def of([_ | tail]), do: 1 + of(tail)
@@ -67,7 +67,7 @@ iex(3)> Length.of [1,2,3]
 iex(4)> Length.of [1,2,3, 6]
 4
 iex(5)>
-//Function Naming and Arity
+#Function Naming and Arity
 iex(6)> defmodule Greeter2 do
 ...(6)> def hello(), do: "Hello anonymous person!"
 ...(6)> def hello(name), do: "Hello #{name}"
@@ -80,4 +80,20 @@ iex(8)> Greeter2.hello("Dennis")
 iex(9)> Greeter2.hello("Dennis", "Karim")
 "Hello, Dennis and Karim"
 iex(10)>
-//Functions and Pattern Matching
+#Functions and Pattern Matching  #Behind the scenes, functions are pattern-matching the arguments that they’re called with.
+iex(11)> defmodule Greeter1 do
+...(11)> def hello(%{name: person_name}) do
+...(11)> IO.puts "Hello, " <> person_name
+...(11)> end
+...(11)> end
+iex(12)> fred = %{
+...(12)> name: "Fred Katiwa",
+...(12)> age: "95",
+...(12)> fav_col: "Taupe"}
+%{age: "95", fav_col: "Taupe", name: "Fred Katiwa"}
+iex(13)> Greeter1.hello(fred)   # call with entire map
+Hello, Fred Katiwa
+:ok
+iex(14)>
+# Making the function retain the properties of the map
+# We have to use a variable to assign it {the function}
