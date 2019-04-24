@@ -97,3 +97,19 @@ Hello, Fred Katiwa
 iex(14)>
 # Making the function retain the properties of the map
 # We have to use a variable to assign it {the function}
+iex(22)> defmodule Greeter3 do
+...(22)> def hello(person = %{name: person_name })do
+...(22)> IO.puts "Hello, " <> person_name
+...(22)> IO.inspect person
+...(22)> end
+...(22)> end
+{:module, Greeter3,
+ <<70, 79, 82, 49, 0, 0, 5, 36, 66, 69, 65, 77, 65, 116, 85, 56, 0, 0, 0, 170,
+   0, 0, 0, 19, 15, 69, 108, 105, 120, 105, 114, 46, 71, 114, 101, 101, 116,
+   101, 114, 51, 8, 95, 95, 105, 110, 102, 111, ...>>, {:hello, 1}}
+iex(23)> Greeter3.hello(fred)
+Hello, Fred Katiwa
+%{age: "95", fav_col: "Taupe", name: "Fred Katiwa"}
+
+Private Functions # When we don’t want other modules accessing a specific function we can make the function private
+# We define them in Elixir with defp
