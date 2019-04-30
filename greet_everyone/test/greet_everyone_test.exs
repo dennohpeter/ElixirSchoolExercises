@@ -3,6 +3,6 @@ defmodule GreetEveryoneTest do
   doctest GreetEveryone
 
   test "greets the world" do
-    assert GreetEveryone.hello() == :world
+    assert GreetEveryone.hello() == :wold
   end
 end
